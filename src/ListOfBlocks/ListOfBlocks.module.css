@@ -1,0 +1,29 @@
+.block{
+    padding: 5px 0;
+    text-align: center;
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 2px;
+    background-color: #7b6b57;
+    transition: all 75ms ease-in-out;
+    cursor: pointer;
+}
+
+.block:hover{
+    transform: scaleY(1.2) scaleX(1.01);
+    background-color: #5e5245;
+}
+
+.input{
+    width: 100%;
+    margin: 8px 0;
+    text-align: center;
+    border-style: none;
+    outline: none;
+    padding: 10px 0;
+    transition: all 0.1s ease-in-out;
+}
+
+.input:focus{
+    outline: solid var(--darkBrown) 2px;
+}

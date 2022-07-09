@@ -1,0 +1,41 @@
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav > button{
+    width: 50px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+}
+
+.nav > button:hover{
+    filter: brightness(1.2);
+}
+
+.activeButton{
+    background-color: var(--brown);
+    position: relative;
+    border: 2px solid var(--darkBrown);
+    border-bottom: none;
+}
+
+.activeButton::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--brown);
+    right: 0;
+    bottom: -2px;
+}
+
+.nonActiveButton{
+    background-color: var(--darkBrown);
+    border-style: none;
+}
+
+.nonActiveButton > img{
+    filter: brightness(0.5);
+}

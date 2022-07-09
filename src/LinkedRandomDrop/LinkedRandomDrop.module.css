@@ -1,0 +1,59 @@
+.containerLinked{
+    padding: 20px 0px 0px 5px;
+}
+
+.containerLinked > div{
+    background-color: var(--cyan);
+    padding: 3px;
+    -webkit-box-shadow: 0px 5px 13px -5px #000000; 
+    box-shadow: 0px 5px 13px -5px #000000;
+}
+
+.linkedDrop{
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 2px;
+    background-color: #7b6b57;
+    transition: all 75ms ease-in-out;
+}
+
+.linkedDrop > h3{
+    width: 62%;
+    margin: 0 auto 0 auto;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+.linkedDrop span{
+    color: black;
+    cursor: pointer;
+    transition: all 75ms ease-in-out;
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.linkedDrop span:hover{
+    color: rgb(58, 58, 58);
+    transform: scale(1.3);
+}
+
+.followUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5px;
+}
+
+.followUp > span{
+    border-radius: 25%;
+    background-color: #3d5a68;
+    color: black;
+}

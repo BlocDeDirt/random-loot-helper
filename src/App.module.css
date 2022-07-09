@@ -1,0 +1,21 @@
+.main{
+    margin: 5px auto;
+    max-width: 700px;
+    min-height: 100px;
+}
+
+.containerSelection{
+    min-height: 50px;
+    background-color: var(--brown);
+    border: 2px solid var(--darkBrown);
+    padding: 10px;
+}
+
+.containerSelection > div{
+    display: flex;
+    min-height: 50px;
+}
+
+.column{
+    width: 50%;
+}
