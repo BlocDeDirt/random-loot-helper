@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { LocalStorageService } from "../Services/LocalStorage.service";
+import SnackBar from "../SnackBar/SnackBar";
 import styles from "./LinkedRandomDrop.module.css";
 interface ILinkedRandomDrop{
     className:string, 
@@ -5,6 +8,13 @@ interface ILinkedRandomDrop{
     setLinkedRandomDrop:React.Dispatch<React.SetStateAction<string[]>>
 }
 export default function LinkedRandomDrop(props:ILinkedRandomDrop){
+
+    const[toggleAlert, setToggleAlert] = useState(false);
+    const[toggleSnackBar, setToggleSnackBar] = useState(false);
+
+    const[messageSnackBar, setMessageSnackBar] = useState("");
+    const[backgroundColor, setBackgroundColor] = useState("");
+    const[color, setColor] = useState("");
 
     const moveUp = (indexToMove:number) =>{
         let arrayClone = [...props.linkedRandomDrop]
@@ -35,8 +45,51 @@ export default function LinkedRandomDrop(props:ILinkedRandomDrop){
         props.setLinkedRandomDrop(arrayClone);
     }
 
+    const tryToSaveToLocalStorage = () => {
+        if(props.linkedRandomDrop.length === 0){
+            setToggleSnackBar(true);
+            setMessageSnackBar("Can't save an empty linked list");
+            setBackgroundColor("rgb(28, 28, 28)");
+            setColor("rgb(188, 188, 188)");
+        }else{
+            if(LocalStorageService.IsLinkedListAlreadyInStorage(props.linkedRandomDrop)){
+                setToggleSnackBar(true);
+                setMessageSnackBar("This list already exist in the book and quill.")
+                setBackgroundColor("#b00000");
+                setColor("rgb(28, 28, 28)");
+            }else{
+                if(LocalStorageService.positionOfEdit === -1){
+                    setToggleSnackBar(true);
+                    setMessageSnackBar("Added linked list to the book and quill");
+                    setBackgroundColor("rgb(3, 118, 3)");
+                    setColor("rgb(28, 28, 28)");
+                    LocalStorageService.AddNewDataToLocalStorage(props.linkedRandomDrop)
+                }else{
+                    setToggleSnackBar(true);
+                    setMessageSnackBar("Edit made !");
+                    setBackgroundColor("rgb(3, 118, 3)");
+                    setColor("rgb(28, 28, 28)");
+                    LocalStorageService.EditDataToLocalStorage(props.linkedRandomDrop);
+                }
+                props.setLinkedRandomDrop([])
+            }
+        }
+    }
+
     return(
         <div className={props.className}>
+            
+            {toggleSnackBar && <SnackBar setToggleSnackBar={setToggleSnackBar} message={messageSnackBar} backgroundColor={backgroundColor} color={color}></SnackBar>}
+            {toggleAlert && <AlertDeleteEverything setToggleAlert={setToggleAlert} setLinkedRandomDrop={props.setLinkedRandomDrop}></AlertDeleteEverything>}
+            
+            <div className={styles.containerButtons}>
+                <button onClick={() => tryToSaveToLocalStorage()}>
+                    <span className="material-icons">save</span>
+                </button>
+                <button onClick={() => {setToggleAlert(true)}}>
+                    <span className="material-icons">delete</span>
+                </button>
+            </div>
             <div className={styles.containerLinked}>
                 <div>
                     {
@@ -85,6 +138,31 @@ export default function LinkedRandomDrop(props:ILinkedRandomDrop){
                             )
                         })
                     }
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function AlertDeleteEverything(props:{setToggleAlert:React.Dispatch<React.SetStateAction<boolean>>, setLinkedRandomDrop:React.Dispatch<React.SetStateAction<string[]>>}){
+    return(
+        <div className={styles.deleteEverything}>
+            <div>
+                <h2>
+                    This action will delete everything in you current list 
+                    that you are building OR cancel the edit if this list is 
+                    coming from the book and quill, proceed ?
+                </h2>
+                <div>
+                    <button onClick={() => {
+                        LocalStorageService.positionOfEdit = -1;
+                        props.setLinkedRandomDrop([]);
+                        props.setToggleAlert(false);}} className={styles.confirm}>
+                        YES
+                    </button>
+                </div>
+                <div>
+                    <button onClick={() => {props.setToggleAlert(false);}} className={styles.deny}>No take me back (っ °Д °;)っ</button>
                 </div>
             </div>
         </div>

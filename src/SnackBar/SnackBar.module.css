@@ -1,0 +1,31 @@
+.snackBar{
+    inset: 0;
+    position: fixed;
+    pointer-events: none;
+    transition: all 150ms ease-in-out;
+}
+
+.snackBar > div{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: right;
+}
+
+.translateLeft{
+    transform: translateX(100%);
+}
+
+.message{
+    max-width: 100%;
+    width: 300px;
+    min-height: 50px;
+    background-color: rgb(28, 28, 28);
+    -webkit-box-shadow: 0px 0px 24px 1px #000000; 
+    box-shadow: 0px 0px 24px 1px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(188, 188, 188);
+    font-size: 17px;
+    padding: 10px;
+}

@@ -1,5 +1,8 @@
 export enum Tab{
     block,
     item,
-    lootChest
+    lootChest,
+    flowerPot,
+    mob,
+    bookAndQuill,
 }

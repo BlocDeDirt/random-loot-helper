@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import { LocalDataService } from "../Services/FetchLocalData.service";
-import { IBlock } from "../Interface/IBlocks";
+import { IList } from "../Interface/Ilist";
 import styles from "./ListOfBlocks.module.css";
 
-export default function ListOfBlocks(props:{className:string, setLinkedRandomDrop:React.Dispatch<React.SetStateAction<string[]>>}){
-    const [listOfBlocks, setListOfBlocks] = useState<IBlock>();
+export default function ListOfBlocks(props:{className:string, setLinkedRandomDrop:React.Dispatch<React.SetStateAction<string[]>>, nameJSON:string}){
+    const [listOfBlocks, setListOfBlocks] = useState<IList>();
     const [search, setSearch] = useState("");
 
     useEffect(() => {
-        LocalDataService.GetData<IBlock>("blocks.json")
+        LocalDataService.GetData<IList>(props.nameJSON)
         .then((list) => {
             setListOfBlocks(list);
+            setSearch("");
         });
-    },[]);
+    },[props.nameJSON]);
 
     return(
         <div className={props.className}>
@@ -23,7 +24,7 @@ export default function ListOfBlocks(props:{className:string, setLinkedRandomDro
             {listOfBlocks
                 ? <ListFiltered 
                     searchedValue={search.toUpperCase()} 
-                    listValues={listOfBlocks?.blocks} 
+                    listValues={listOfBlocks?.values} 
                     setLinkedRandomDrop={props.setLinkedRandomDrop}></ListFiltered>
                 : "loading"
             }

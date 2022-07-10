@@ -1,0 +1,73 @@
+.rowLocalStorage{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--cyan);
+    justify-content: center;
+    padding: 10px 5px;
+    border-radius: 15px 15px 0 0;
+}
+
+.valueInsideRow{
+    background-color: gray;
+    max-width: 150px;
+    margin: 3px;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.followUp{
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8px;
+    align-self: center;
+}
+
+.followUp > span{
+    background-color: #3d5a68;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.containerButton{
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+}
+
+.containerButton > button{
+    border-style: none;
+    outline: none;
+    width: 50%;
+    cursor: pointer;
+}
+
+.containerButton > button:hover{
+    filter: brightness(1.2);
+}
+
+.containerButton > button:first-of-type{
+   background-color: var(--darkBrown);
+}
+
+.containerButton > button:nth-of-type(2){
+    background-color: #3d5a68;
+}
+
+.input{
+    width: 100%;
+    margin: 8px 0;
+    text-align: center;
+    border-style: none;
+    outline: none;
+    padding: 10px 0;
+    transition: all 0.1s ease-in-out;
+}
+
+.input:focus{
+    outline: solid var(--darkBrown) 2px;
+}

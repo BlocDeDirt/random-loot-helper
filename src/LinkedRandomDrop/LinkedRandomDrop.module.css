@@ -1,3 +1,29 @@
+.containerButtons{
+    display: flex;
+    justify-content: right;
+}
+
+.containerButtons > button{
+    border-style: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+.containerButtons > button:hover{
+    filter: brightness(1.2);
+}
+
+.containerButtons > button:nth-child(1){
+    background-color: rgb(3, 118, 3);
+}
+
+.containerButtons > button:nth-child(2){
+    background-color: rgb(152, 0, 0);
+}
+
 .containerLinked{
     padding: 20px 0px 0px 5px;
 }
@@ -56,4 +82,54 @@
     border-radius: 25%;
     background-color: #3d5a68;
     color: black;
+}
+
+
+
+
+
+.deleteEverything{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.deleteEverything > div{
+    padding: 10px;
+    max-width: 100%;
+    width: 300px;
+    background-color: var(--brown);
+    border: 1px solid red;
+}
+
+.deleteEverything h2{
+    margin: 0;
+    text-align: center;
+    font-size: 17px;
+}
+
+.deleteEverything button{
+    width: 100%;
+    padding: 15px 0;
+    outline: none;
+    border-style: none;
+    cursor: pointer;
+}
+
+.deleteEverything button:hover{
+    filter: brightness(1.1);
+}
+
+.confirm{
+    background-color: rgb(3, 118, 3);
+}
+
+.deny{
+    color: rgb(181, 181, 181);
+    background-color: rgb(26, 26, 26);
 }

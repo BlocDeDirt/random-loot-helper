@@ -22,6 +22,24 @@ export default function SelectionMenu(props:IPropSelection){
             >
                 <img src={process.env.PUBLIC_URL+"assets/images/chest.png"} alt="minecraft chest" />
             </button>
+
+            <button className={props.tabSelected === Tab.flowerPot ? styles.activeButton : styles.nonActiveButton}
+            onClick={((e) => {props.setTabSelected(Tab.flowerPot)})}
+            >
+                <img src={process.env.PUBLIC_URL+"assets/images/flowerPot.png"} alt="minecraft flower pot" />
+            </button>
+
+            <button className={props.tabSelected === Tab.mob ? styles.activeButton : styles.nonActiveButton}
+            onClick={((e) => {props.setTabSelected(Tab.mob)})}
+            >
+                <img src={process.env.PUBLIC_URL+"assets/images/creeperHead.png"} alt="minecraft creeper head" />
+            </button>
+
+            <button className={props.tabSelected === Tab.bookAndQuill ? styles.activeButton : styles.nonActiveButton}
+            onClick={((e) => {props.setTabSelected(Tab.bookAndQuill)})}
+            >
+                <img src={process.env.PUBLIC_URL+"assets/images/bookAndQuill.png"} alt="minecraft book and quill" />
+            </button>
         </nav>
     )
 }

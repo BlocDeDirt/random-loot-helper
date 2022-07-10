@@ -5,6 +5,7 @@ import {Tab} from "./EnumTab/EnumTab";
 import { useState } from "react";
 import ListOfBlocks from "./ListOfBlocks/ListOfBlocks";
 import LinkedRandomDrop from "./LinkedRandomDrop/LinkedRandomDrop";
+import DisplayLocalStorage from "./DisplayLocalStorage/DisplayLocalStorage";
 
 function App() {
   const [tabSelected, setTabSelected] = useState<Tab>(Tab.block);
@@ -19,13 +20,17 @@ function App() {
           {/*---------------------------------------------------------*/}
           <SelectionMenu tabSelected={tabSelected} setTabSelected={setTabSelected}></SelectionMenu>
           <div className={styles.containerSelection}>
-            <div>
 
-              <ListOfBlocks className={styles.column} setLinkedRandomDrop={setLinkedRandomDrop} ></ListOfBlocks>
-              
-              <LinkedRandomDrop className={styles.column} linkedRandomDrop={linkedRandomDrop} setLinkedRandomDrop={setLinkedRandomDrop}></LinkedRandomDrop>
+            {tabSelected !== Tab.bookAndQuill
+              ?<div className={styles.listDrop}>
+                  <WhatToRender tabSelected={tabSelected} setLinkedRandomDrop={setLinkedRandomDrop}></WhatToRender>
+                  <LinkedRandomDrop className={styles.column} linkedRandomDrop={linkedRandomDrop} setLinkedRandomDrop={setLinkedRandomDrop}></LinkedRandomDrop>
+                </div>
 
-            </div>
+              : <DisplayLocalStorage setLinkedRandomDrop={setLinkedRandomDrop}></DisplayLocalStorage> /*BOOK AND QUILL*/
+            }
+
+
           </div>
           {/*---------------------------------------------------------*/}
         </div>
@@ -33,6 +38,44 @@ function App() {
 
     </div>
   );
+}
+
+function WhatToRender(props:{tabSelected:Tab, setLinkedRandomDrop:React.Dispatch<React.SetStateAction<string[]>>}){
+  if(props.tabSelected === Tab.block){
+    return(
+      <ListOfBlocks className={styles.column} setLinkedRandomDrop={props.setLinkedRandomDrop} nameJSON="blocks.json"></ListOfBlocks>
+    )
+  }
+
+  if(props.tabSelected === Tab.item){
+    return(
+      <ListOfBlocks className={styles.column} setLinkedRandomDrop={props.setLinkedRandomDrop} nameJSON="items.json"></ListOfBlocks>
+    )
+  }
+
+  if(props.tabSelected === Tab.lootChest){
+    return(
+      <ListOfBlocks className={styles.column} setLinkedRandomDrop={props.setLinkedRandomDrop} nameJSON="lootChest.json"></ListOfBlocks>
+    )
+  }
+
+  if(props.tabSelected === Tab.flowerPot){
+    return(
+      <ListOfBlocks className={styles.column} setLinkedRandomDrop={props.setLinkedRandomDrop} nameJSON="flowerPots.json"></ListOfBlocks>
+    )
+  }
+
+  if(props.tabSelected === Tab.mob){
+    return(
+      <ListOfBlocks className={styles.column} setLinkedRandomDrop={props.setLinkedRandomDrop} nameJSON="mobs.json"></ListOfBlocks>
+    )
+  }
+
+  return(
+    <>
+    Holy poop this is not normal
+    </>
+  )
 }
 
 export default App;
