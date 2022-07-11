@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/random-loot-helper/static/css/main.40bdfd64.css",
-    "main.js": "/random-loot-helper/static/js/main.af0a568d.js",
+    "main.js": "/random-loot-helper/static/js/main.3485229a.js",
     "static/media/Minecraftia-Regular.ttf": "/random-loot-helper/static/media/Minecraftia-Regular.69fd3db14fbc8b3f7cdb.ttf",
     "index.html": "/random-loot-helper/index.html",
     "main.40bdfd64.css.map": "/random-loot-helper/static/css/main.40bdfd64.css.map",
-    "main.af0a568d.js.map": "/random-loot-helper/static/js/main.af0a568d.js.map"
+    "main.3485229a.js.map": "/random-loot-helper/static/js/main.3485229a.js.map"
   },
   "entrypoints": [
     "static/css/main.40bdfd64.css",
-    "static/js/main.af0a568d.js"
+    "static/js/main.3485229a.js"
   ]
 }
