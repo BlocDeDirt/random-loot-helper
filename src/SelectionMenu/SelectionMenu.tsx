@@ -8,37 +8,37 @@ export default function SelectionMenu(props:IPropSelection){
             <button className={props.tabSelected === Tab.block ? styles.activeButton : styles.nonActiveButton}
             onClick={((e) => {props.setTabSelected(Tab.block)})}
             >
-                <img src={"%PUBLIC_URL%/"+"assets/images/grass_block.png"} alt="minecraft grass block" />
+                <img src={process.env.PUBLIC_URL+"/assets/images/grass_block.png"} alt="minecraft grass block" />
             </button>
 
             <button className={props.tabSelected === Tab.item ? styles.activeButton : styles.nonActiveButton}
             onClick={((e) => {props.setTabSelected(Tab.item)})}
             >
-                <img src={"%PUBLIC_URL%/"+"assets/images/pickaxe.png"} alt="minecraft pickaxe" />
+                <img src={process.env.PUBLIC_URL+"/assets/images/pickaxe.png"} alt="minecraft pickaxe" />
             </button>
 
             <button className={props.tabSelected === Tab.lootChest ? styles.activeButton : styles.nonActiveButton}
             onClick={((e) => {props.setTabSelected(Tab.lootChest)})}
             >
-                <img src={"%PUBLIC_URL%/"+"assets/images/chest.png"} alt="minecraft chest" />
+                <img src={process.env.PUBLIC_URL+"/assets/images/chest.png"} alt="minecraft chest" />
             </button>
 
             <button className={props.tabSelected === Tab.flowerPot ? styles.activeButton : styles.nonActiveButton}
             onClick={((e) => {props.setTabSelected(Tab.flowerPot)})}
             >
-                <img src={"%PUBLIC_URL%/"+"assets/images/flowerPot.png"} alt="minecraft flower pot" />
+                <img src={process.env.PUBLIC_URL+"/assets/images/flowerPot.png"} alt="minecraft flower pot" />
             </button>
 
             <button className={props.tabSelected === Tab.mob ? styles.activeButton : styles.nonActiveButton}
             onClick={((e) => {props.setTabSelected(Tab.mob)})}
             >
-                <img src={"%PUBLIC_URL%/"+"assets/images/creeperHead.png"} alt="minecraft creeper head" />
+                <img src={process.env.PUBLIC_URL+"/assets/images/creeperHead.png"} alt="minecraft creeper head" />
             </button>
 
             <button className={props.tabSelected === Tab.bookAndQuill ? styles.activeButton : styles.nonActiveButton}
             onClick={((e) => {props.setTabSelected(Tab.bookAndQuill)})}
             >
-                <img src={"%PUBLIC_URL%/"+"assets/images/bookAndQuill.png"} alt="minecraft book and quill" />
+                <img src={process.env.PUBLIC_URL+"/assets/images/bookAndQuill.png"} alt="minecraft book and quill" />
             </button>
         </nav>
     )
